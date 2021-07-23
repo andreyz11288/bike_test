@@ -1,15 +1,24 @@
 import { useState } from 'react'
 import s from './List.module.scss'
+import img from '../../image/Vector.svg'
 
 export default function List() {
   const [list, setList] = useState([
     {
-      id: 1,
+      id: 1111111111,
       name: 'bike',
       type: 'easy',
       color: 'red',
       status: 'Busy',
-      price: 450,
+      price: '450.00',
+    },
+    {
+      id: 122222221,
+      name: 'bike2',
+      type: 'easy',
+      color: 'green',
+      status: 'Busy',
+      price: '1450.00',
     },
   ])
 
@@ -17,16 +26,19 @@ export default function List() {
     <ul className={s.list}>
       {list.map((e) => (
         <li className={s.item_list} key={e.id}>
-          <div>
+          <div className={s.rigth_list}>
             <span>
-              {e.name}-{e.type}({e.color})
+             <span className={s.name_list}>{e.name}</span>-{e.type}({e.color})
             </span>
             <br />
-            <span>id:{e.id}</span>
+            <span className={s.id_list}>id:{e.id}</span>
             <br />
             <span>{e.status}</span>
           </div>
-          <span className={s.price_list}>{e.price}uah/hr</span>
+          <div className={s.div_price_list}>
+            <img src={img} alt="vector" width='8' height='8'/>
+            <span className={s.price_list}>{e.price}{' '}uah/hr</span>
+          </div>
         </li>
       ))}
     </ul>

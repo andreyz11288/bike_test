@@ -1,0 +1,13 @@
+.footer_section {
+  //   position: absolute;
+  //   bottom: 0;
+  //   left: 0;
+  height: 42px;
+  background-color: #696969;
+  text-align: end;
+  line-height: 42px;
+  & img {
+    margin-right: 10px;
+    vertical-align: middle;
+  }
+}

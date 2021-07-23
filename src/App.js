@@ -1,12 +1,14 @@
 import s from './App.module.scss'
 import Header from './Component/Header/Header.jsx'
-import List from './Component/List/List.jsx'
+import Main from './Component/Main/Main.js'
+import Footer from './Component/Footer/Footer'
 
 function App() {
   return (
     <div className={s.container}>
       <Header />
-      <List />
+      <Main />
+      <Footer/>
     </div>
   )
 }

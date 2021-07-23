@@ -1,17 +1,70 @@
 .list {
+  width: 100%;
   padding: 0;
   margin: 0;
+  border-right: 1px solid #c4c4c4;
+  & li:first-child {
+    margin: 9px 9px 0 12px;
+    // margin: 0;
+  }
 }
+
 .item_list {
   display: flex;
   max-width: 618px;
-  margin: 9px 0 0 12px;
+  margin: 12px 9px 0 12px;
   border-radius: 10px;
   border: 2px solid rgba(111, 207, 151, 1);
   background-color: rgba(232, 232, 232, 1);
   & .price_list {
     display: block;
-    margin-left: auto;
-    margin-top: auto;
+    padding-right: 13px;
+    margin-top: 33px;
+
+    font-family: Saira;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 26px;
+
+    color: #000000;
   }
+}
+.div_price_list {
+  display: block;
+  margin-left: auto;
+  & img {
+    display: block;
+    margin-left: auto;
+    padding: 12px 12px 0 0;
+  }
+}
+.rigth_list {
+  padding-left: 18px;
+  padding-top: 12px;
+  // padding-bottom: 12px;
+  & > span {
+    font-family: Saira;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 22px;
+  }
+  & .id_list {
+    font-family: Saira;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 8px;
+    line-height: 13px;
+
+    color: #717171;
+  }
+}
+.name_list {
+  font-family: Saira;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 22px;
+  color: #333333;
 }

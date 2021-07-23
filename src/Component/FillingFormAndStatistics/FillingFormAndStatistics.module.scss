@@ -1,0 +1,59 @@
+.form_section {
+  max-width: 513px;
+  margin: 0 0 0 10px;
+}
+.filling {
+  padding-bottom: 16px;
+  border-bottom: 1px solid #c4c4c4;
+  & :nth-child(2n) {
+    margin-left: 10px;
+  }
+  & :nth-child(n) {
+    margin-top: 10px;
+  }
+
+  & input {
+    width: 236px;
+    height: 29px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    background: #e8e8e8;
+    padding-left: 16px;
+    border: 0;
+
+    font-family: Saira;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 19px;
+
+    color: #717171;
+  }
+}
+.filling .input_description {
+  padding-bottom: 51px;
+  height: 75px;
+  width: 482px;
+}
+.filling .button_save,
+.filling .button_clear {
+  margin-left: 0;
+  width: 236px;
+  background-color: #696969;
+  border-radius: 5px;
+  cursor: pointer;
+
+  font-family: Saira;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 22px;
+  align-items: center;
+  text-align: center;
+
+  color: #ffffff;
+}
+
+.filling .button_clear {
+  margin-left: 11px;
+}
