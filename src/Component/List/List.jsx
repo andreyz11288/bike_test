@@ -9,7 +9,7 @@ export default function List() {
       name: 'bike',
       type: 'easy',
       color: 'red',
-      status: 'Busy',
+      // status: 'Busy',
       price: '450.00',
     },
     {
@@ -17,7 +17,7 @@ export default function List() {
       name: 'bike2',
       type: 'easy',
       color: 'green',
-      status: 'Busy',
+      // status: 'Busy',
       price: '1450.00',
     },
   ])
@@ -33,7 +33,11 @@ export default function List() {
             <br />
             <span className={s.id_list}>id:{e.id}</span>
             <br />
-            <span>{e.status}</span>
+            <span>STATUS:<select className={s.select_list} name='STATUS' >
+  <option>available</option>
+              <option>busy</option>
+              <option>unavailable</option>
+</select></span>
           </div>
           <div className={s.div_price_list}>
             <img src={img} alt="vector" width='8' height='8'/>
