@@ -35,7 +35,7 @@ export default function Statistic() {
     <div>
       <p className={s.statistic_text}>STATISTICS</p>
       <p>
-        Total Bikes: <span>{state.length}</span>
+        Total Bikes: <span>{state.length && state.length}</span>
       </p>
       <p>
         Available Bikes: <span>{stateAvailable}</span>
