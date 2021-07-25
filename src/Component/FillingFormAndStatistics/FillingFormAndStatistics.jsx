@@ -1,15 +1,16 @@
 import s from './FillingFormAndStatistics.module.scss';
+import '../List/List.scss';
 import { useState } from 'react';
 import { addData } from '../../Redux/Operations';
 import { useDispatch, useSelector } from 'react-redux';
 import { nanoid } from 'nanoid';
 import { useEffect } from 'react';
-import { data } from '../../Redux/Selector';
+import { data, idData } from '../../Redux/Selector';
 
 function FillingFormAndStatistics() {
   const modelId = nanoid(13);
   const state = useSelector(data);
-  console.log(state);
+  const stateId = useSelector(idData);
   const [stateType, setType] = useState('');
   const [stateName, setName] = useState('');
   const [stateColor, setColor] = useState('');
@@ -17,6 +18,10 @@ function FillingFormAndStatistics() {
   const [statePrice, setPrice] = useState('');
   const [stateID, setID] = useState('');
   const [stateDescription, setDescription] = useState('');
+  const [stateAve, setAve] = useState(null);
+  const [stateAvailable, setAvailable] = useState(null);
+  const [stateBooked, setBooked] = useState(null);
+  const [stateIdDes, setIdDes] = useState('');
 
   const dispatch = useDispatch();
 
@@ -39,21 +44,20 @@ function FillingFormAndStatistics() {
   const formPrice = e => {
     setPrice(e.target.value);
   };
-  // const formId = e => {
 
-  // };
   const formDescription = e => {
     setDescription(e.target.value);
   };
 
   const dataForm = {
-    name: stateName,
-    type: stateType,
-    color: stateColor,
+    name: `${stateName}`.toUpperCase(),
+    type: `${stateType}`.toUpperCase(),
+    color: `${stateColor}`.toUpperCase(),
     Wheel: stateWheel,
-    price: statePrice,
+    price: Math.round(statePrice * 100.0) / 100.0,
     id: stateID,
     Description: stateDescription,
+    status: 'available',
   };
   const saveData = async e => {
     e.preventDefault();
@@ -67,6 +71,34 @@ function FillingFormAndStatistics() {
     setDescription('');
   };
 
+  useEffect(() => {
+    if (state.length > 0) {
+      const available = state.map(e => e.status === 'available');
+      const ava = available.reduce((total, amount) => total + amount);
+      ava === true ? setAvailable(1) : setAvailable(ava);
+      !ava && setAvailable(0);
+      const booked = state.map(e => e.status === 'busy');
+      const bookedBikes = booked.reduce((total, amount) => total + amount);
+      bookedBikes === true ? setBooked(1) : setBooked(bookedBikes);
+      !bookedBikes && setBooked(0);
+
+      const average = state.map(e => {
+        const price = Number(e.price);
+        return price;
+      });
+      const ave =
+        average.reduce((total, amount) => total + amount) / state.length;
+      setAve(Math.round(ave * 100.0) / 100.0);
+    }
+  }, [state]);
+
+  useEffect(() => {
+    if (stateId) {
+      const idDescript = state.filter(e => e.id === stateId);
+      setIdDes(idDescript[0].Description);
+    }
+  }, [state, stateId]);
+
   return (
     <div className={s.form_section}>
       <form className={s.filling} onSubmit={e => saveData(e)}>
@@ -75,62 +107,51 @@ function FillingFormAndStatistics() {
           onChange={e => formName(e)}
           type="text"
           placeholder="name"
-          //   required
-          //   minLength="5"
+          required
+          minLength="5"
         />
         <input
           value={stateType}
           onChange={e => formType(e)}
           type="text"
           placeholder="Type"
-          //   required
-          //   minLength="5"
+          required
+          minLength="5"
         />
         <input
           value={stateColor}
           onChange={e => formColor(e)}
           type="text"
           placeholder="Color"
-          //   required
-          //   minLength="5"
+          required
+          minLength="5"
         />
         <input
           value={stateWheel}
           onChange={e => formWheel(e)}
-          //   type="number"
+          type="number"
           placeholder="Wheel size"
-          //   required
-          //   minLength="5"
+          required
         />
         <input
           value={statePrice}
           onChange={e => formPrice(e)}
-          //   type="number"
+          type="number"
           placeholder="Price"
-          //   required
-          //   minLength="5"
+          required
+          // min="00.00"
         />
-        <input
-          value={stateID}
-          // onChange={e => formId(e)}
-          //   type="number"
-
-          placeholder="ID (slug): ХХХХХХХХХХХХХ"
-          //   required
-          //   minLength="5"
-        />
+        <input value={`ID (slug): ${stateID}`} disabled />
         <input
           value={stateDescription}
           onChange={e => formDescription(e)}
           className={s.input_description}
           placeholder="Description"
           type="text"
-
-          //   required
-          //   minLength="5"
+          required
+          minLength="5"
         />
         <button type="submit" className={s.button_save}>
-          {' '}
           SAVE
         </button>
         <button
@@ -143,9 +164,14 @@ function FillingFormAndStatistics() {
       </form>
       <div>
         <p>STATISTICS</p>
-        <p>Total Bikes: 0</p>
-        <p>Booked Bikes: 0</p>
-        <p>Average bike cost: 0.00 UAH/hr.</p>
+        <p>Total Bikes: {state.length}</p>
+        <p>Available Bikes : {stateAvailable}</p>
+        <p>Booked Bikes: {stateBooked}</p>
+        <p>Average bike cost: {stateAve} UAH/hr.</p>
+      </div>
+      <div id="form_description" className="form_description">
+        <p>Description</p>
+        <p>{stateIdDes}</p>
       </div>
     </div>
   );

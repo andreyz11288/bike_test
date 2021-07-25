@@ -14,8 +14,8 @@
   max-width: 618px;
   margin: 12px 9px 0 12px;
   border-radius: 10px;
-  border: 2px solid rgba(111, 207, 151, 1);
   background-color: rgba(232, 232, 232, 1);
+  cursor: pointer;
   & .price_list {
     display: block;
     padding-right: 13px;
@@ -40,9 +40,10 @@
   }
 }
 .rigth_list {
+  display: grid;
   padding-left: 18px;
   padding-top: 12px;
-  // padding-bottom: 12px;
+  padding-bottom: 14px;
   & > span {
     font-family: Saira;
     font-style: normal;
@@ -69,6 +70,19 @@
   color: #333333;
 }
 .select_list {
-  border: 0;
+  border: none;
   background-color: #e8e8e8;
+  appearance: none;
+  outline: none;
+  padding-left: 10px;
+}
+.form_list {
+  display: flex;
+  width: 140px;
+}
+.select_list:active {
+  border: none;
+}
+.arrow {
+  height: 5px;
 }

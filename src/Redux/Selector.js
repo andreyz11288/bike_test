@@ -1,2 +1,3 @@
 const data = state => state.data;
-export { data };
+const idData = state => state.idData;
+export { data, idData };

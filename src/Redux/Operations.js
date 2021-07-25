@@ -9,14 +9,18 @@ import {
   getSuccess,
   getError,
   getStart,
+  upSuccess,
+  upError,
+  upStart,
+  idSuccess,
+  idError,
+  idStart,
 } from './Actions';
 
 const addData = credentials => async dispatch => {
   dispatch(addStart());
-  console.log(credentials);
   try {
     const response = await localforage.setItem('data', credentials);
-    console.log(response);
     dispatch(addSuccess(response));
   } catch (error) {
     dispatch(addError(error.message));
@@ -26,7 +30,6 @@ const getData = () => async dispatch => {
   dispatch(getStart());
   try {
     const response = await localforage.getItem('data');
-    console.log(response);
     dispatch(getSuccess(response));
   } catch (error) {
     dispatch(getError(error.message));
@@ -38,10 +41,46 @@ const deleteData = (credentials, data) => async dispatch => {
 
   try {
     const response = await localforage.setItem('data', filterData);
-    console.log(response);
     dispatch(deleteSuccess(response));
   } catch (error) {
     dispatch(deleteError(error.message));
   }
 };
-export { addData, getData, deleteData };
+
+const upData = (id, value, state) => async dispatch => {
+  dispatch(upStart());
+  const filterData = state.filter(e => e.id !== id);
+  const indexDataOne = state.findIndex(e => e.id === id);
+  const [{ name, type, color, Wheel, price, Description }] = state.filter(
+    e => e.id === id,
+  );
+  const newObj = {
+    name,
+    type,
+    color,
+    Wheel,
+    price,
+    id: id,
+    Description,
+    status: value,
+  };
+  filterData.splice(indexDataOne, 0, newObj);
+  try {
+    const response = await localforage.setItem('data', filterData);
+    dispatch(upSuccess(response));
+  } catch (error) {
+    dispatch(upError(error.message));
+  }
+};
+
+const idData = id => async dispatch => {
+  dispatch(idStart());
+  try {
+    // const response = await localforage.setItem('data', credentials);
+    dispatch(idSuccess(id));
+  } catch (error) {
+    dispatch(idError(error.message));
+  }
+};
+
+export { addData, getData, deleteData, upData, idData };
