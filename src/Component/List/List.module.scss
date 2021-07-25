@@ -20,7 +20,7 @@
   & .price_list {
     display: block;
     padding-right: 13px;
-    margin-top: 33px;
+    margin-top: 53px;
 
     font-family: Saira;
     font-style: normal;
@@ -31,18 +31,21 @@
     color: #000000;
   }
 }
-// .item_list:active {
-//   background-color: #ffffff;
-//   transition: background-color 0s;
-// }
 
 .div_price_list {
   display: block;
   margin-left: auto;
   & img {
+    position: absolute;
+    right: 0;
     display: block;
     margin-left: auto;
     padding: 12px 12px 0 0;
+    z-index: 20;
+  }
+  & img:hover {
+    cursor: auto;
+    filter: invert(1);
   }
 }
 .rigth_list {

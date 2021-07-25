@@ -14,6 +14,7 @@ export default function List() {
   }, [dispatch]);
 
   const clickDelete = e => {
+    console.log('14');
     dispatch(deleteData(e, state));
   };
 

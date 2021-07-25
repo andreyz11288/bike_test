@@ -19,16 +19,12 @@ function FillingFormAndStatistics() {
   const [stateColor, setColor] = useState('');
   const [stateWheel, setWheel] = useState('');
   const [statePrice, setPrice] = useState('');
-  const [stateID, setID] = useState('');
+  const [stateID, setID] = useState(modelId);
   const [stateDescription, setDescription] = useState('');
   const [stateAve, setAve] = useState(null);
   const [stateAvailable, setAvailable] = useState(null);
   const [stateBooked, setBooked] = useState(null);
   const [stateIdDes, setIdDes] = useState('');
-
-  useEffect(() => {
-    setID(modelId);
-  }, []);
 
   const formType = e => {
     setType(e.target.value);
@@ -60,10 +56,21 @@ function FillingFormAndStatistics() {
     Description: stateDescription,
     status: 'available',
   };
-  const saveData = async e => {
+  const saveData = e => {
     e.preventDefault();
     setID(modelId);
     dispatch(addData([dataForm, ...state]));
+    setType('');
+    setName('');
+    setColor('');
+    setWheel('');
+    setPrice('');
+    setDescription('');
+  };
+
+  const setIDFunc = e => {
+    e.preventDefault();
+    setID(modelId);
     setType('');
     setName('');
     setColor('');
@@ -103,17 +110,6 @@ function FillingFormAndStatistics() {
       }
     }
   }, [state, stateId]);
-
-  const setIDFunc = e => {
-    e.preventDefault();
-    setID(modelId);
-    setType('');
-    setName('');
-    setColor('');
-    setWheel('');
-    setPrice('');
-    setDescription('');
-  };
 
   return (
     <div className={s.form_section}>
