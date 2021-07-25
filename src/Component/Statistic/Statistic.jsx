@@ -27,19 +27,20 @@ export default function Statistic() {
   //     setAve(Math.round(ave * 100.0) / 100.0);
   //   }
   // }, [state]);
-  //   return (
-  //     <div>
-  //       <p className={s.statistic_text}>STATISTICS</p>
-  //       {/* <p>Total Bikes: {state.length && <span>{state.length}</span>}</p> */}
-  //       <p>
-  //         Available Bikes: <span>{stateAvailable}</span>
-  //       </p>
-  //       <p>
-  //         Booked Bikes: <span>{stateBooked}</span>
-  //       </p>
-  //       <p>
-  //         Average bike cost: <span>{stateAve}</span> UAH/hr.
-  //       </p>
-  //     </div>
-  //   );
+  return (
+    // <div>
+    //   <p className={s.statistic_text}>STATISTICS</p>
+    //   {/* <p>Total Bikes: {state.length && <span>{state.length}</span>}</p> */}
+    //   <p>
+    //     Available Bikes: <span>{stateAvailable}</span>
+    //   </p>
+    //   <p>
+    //     Booked Bikes: <span>{stateBooked}</span>
+    //   </p>
+    //   <p>
+    //     Average bike cost: <span>{stateAve}</span> UAH/hr.
+    //   </p>
+    // </div>
+    <></>
+  );
 }
