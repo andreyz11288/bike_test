@@ -1,7 +1,7 @@
-import { data } from '../../Redux/Selector';
-import { useSelector } from 'react-redux';
-import { useEffect, useState } from 'react';
-import s from './Statistic.module.scss';
+// import { data } from '../../Redux/Selector';
+// import { useSelector } from 'react-redux';
+// import { useEffect, useState } from 'react';
+// import s from './Statistic.module.scss';
 
 export default function Statistic() {
   // const state = useSelector(data);
@@ -41,6 +41,6 @@ export default function Statistic() {
     //     Average bike cost: <span>{stateAve}</span> UAH/hr.
     //   </p>
     // </div>
-    <></>
+    <div></div>
   );
 }
