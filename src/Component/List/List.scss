@@ -35,9 +35,9 @@
 }
 .form_description {
   display: none;
-  border: 1px solid #696969;
-  border-radius: 10px;
-  & :nth-child(1) {
+  width: 482px;
+  margin-top: 50px;
+  & > p {
     text-align: center;
     font-weight: 500;
     font-size: 20px;
@@ -45,4 +45,8 @@
 }
 .vision {
   display: block;
+}
+.color {
+  background-color: #ffffff;
+  transition: background-color 0s;
 }

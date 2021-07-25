@@ -28,11 +28,27 @@ export default function List() {
   const descrip = id => {
     dispatch(idData(id));
     const finsDescr = document.getElementById('form_description');
+    const liColor = document.getElementById(`${id}`);
+    const allLiColor = document.getElementsByClassName(`${s.item_list}`);
+
     if (finsDescr.className.includes(`${id}`)) {
-      finsDescr.className = 'form_description';
-    } else {
+      finsDescr.classList.remove(`vision`);
+      finsDescr.classList.remove(`${id}`);
+
+      liColor.classList.remove(`color`);
+      liColor.classList.remove(`${id}`);
+      return;
+    }
+    if (!finsDescr.className.includes(`${id}`)) {
+      finsDescr.className = `form_description`;
       finsDescr.classList.add(`${id}`);
       finsDescr.classList.add(`vision`);
+
+      for (let index = 0; index < allLiColor.length; index++) {
+        allLiColor[index].classList.remove('color');
+      }
+      liColor.classList.add(`${id}`);
+      liColor.classList.add(`color`);
     }
   };
 
@@ -40,7 +56,7 @@ export default function List() {
     <ul className={s.list}>
       {state.map(e => (
         <li
-          onClick={() => descrip(e.id)}
+          // onClick={() => descrip(e.id)}
           id={e.id}
           className={s.item_list}
           key={e.id}
@@ -55,6 +71,7 @@ export default function List() {
               <span className={s.form_list}>
                 STATUS:
                 <form
+                  className={s.form_select}
                   id="arrow"
                   onChange={e => {
                     statusForm(e);
@@ -83,6 +100,7 @@ export default function List() {
               <span className={s.price_list}>{e.price} uah/hr</span>
             </div>
           </div>
+          <div onClick={() => descrip(e.id)} className={s.clickDescr}></div>
         </li>
       ))}
     </ul>

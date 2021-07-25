@@ -17,7 +17,7 @@
     height: 29px;
     box-sizing: border-box;
     border-radius: 5px;
-    background: #e8e8e8;
+    background-color: #e8e8e8;
     padding-left: 16px;
     border: 0;
 
@@ -31,9 +31,13 @@
   }
 }
 .filling .input_description {
-  padding-bottom: 51px;
-  height: 75px;
+  background-color: #e8e8e8;
+  // padding-bottom: 51px;
+  min-height: 75px;
+  border-radius: 10px;
+  box-sizing: border-box;
   width: 482px;
+  padding-left: 16px;
 }
 .filling .button_save,
 .filling .button_clear {
@@ -56,4 +60,47 @@
 
 .filling .button_clear {
   margin-left: 11px;
+}
+.container_text {
+  border: 1px solid #696969;
+  border-radius: 10px;
+  min-height: 100px;
+  background-color: #e8e8e8;
+  & p {
+    font-family: Saira;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 22px;
+    text-indent: 20px;
+  }
+  & p::first-letter {
+    text-transform: uppercase;
+  }
+}
+.statistic_text {
+  padding: 10px 0 5px 0;
+  font-family: Saira;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 28px;
+  color: #000000;
+  & ~ p {
+    margin-bottom: 5px;
+    font-family: Saira;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 22px;
+    color: #000000;
+  }
+  & ~ p span {
+    font-family: Saira;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 22px;
+    color: #000000;
+  }
 }

@@ -9,7 +9,10 @@ import { data, idData } from '../../Redux/Selector';
 
 function FillingFormAndStatistics() {
   const modelId = nanoid(13);
+
   const state = useSelector(data);
+  const dispatch = useDispatch();
+
   const stateId = useSelector(idData);
   const [stateType, setType] = useState('');
   const [stateName, setName] = useState('');
@@ -22,8 +25,6 @@ function FillingFormAndStatistics() {
   const [stateAvailable, setAvailable] = useState(null);
   const [stateBooked, setBooked] = useState(null);
   const [stateIdDes, setIdDes] = useState('');
-
-  const dispatch = useDispatch();
 
   useEffect(() => {
     setID(modelId);
@@ -95,9 +96,24 @@ function FillingFormAndStatistics() {
   useEffect(() => {
     if (stateId) {
       const idDescript = state.filter(e => e.id === stateId);
-      setIdDes(idDescript[0].Description);
+      if (idDescript[0] === undefined) {
+        return;
+      } else {
+        setIdDes(idDescript[0].Description);
+      }
     }
   }, [state, stateId]);
+
+  const setIDFunc = e => {
+    e.preventDefault();
+    setID(modelId);
+    setType('');
+    setName('');
+    setColor('');
+    setWheel('');
+    setPrice('');
+    setDescription('');
+  };
 
   return (
     <div className={s.form_section}>
@@ -142,7 +158,7 @@ function FillingFormAndStatistics() {
           // min="00.00"
         />
         <input value={`ID (slug): ${stateID}`} disabled />
-        <input
+        <textarea
           value={stateDescription}
           onChange={e => formDescription(e)}
           className={s.input_description}
@@ -156,22 +172,32 @@ function FillingFormAndStatistics() {
         </button>
         <button
           type="reset"
-          onClick={e => setID(modelId)}
+          onClick={e => setIDFunc(e)}
           className={s.button_clear}
         >
           CLEAR
         </button>
       </form>
       <div>
-        <p>STATISTICS</p>
-        <p>Total Bikes: {state.length}</p>
-        <p>Available Bikes : {stateAvailable}</p>
-        <p>Booked Bikes: {stateBooked}</p>
-        <p>Average bike cost: {stateAve} UAH/hr.</p>
+        <p className={s.statistic_text}>STATISTICS</p>
+        <p>
+          Total Bikes: <span>{state.length}</span>
+        </p>
+        <p>
+          Available Bikes: <span>{stateAvailable}</span>
+        </p>
+        <p>
+          Booked Bikes: <span>{stateBooked}</span>
+        </p>
+        <p>
+          Average bike cost: <span>{stateAve}</span> UAH/hr.
+        </p>
       </div>
       <div id="form_description" className="form_description">
         <p>Description</p>
-        <p>{stateIdDes}</p>
+        <div className={s.container_text}>
+          <p className={s.text_description}>{stateIdDes}</p>
+        </div>
       </div>
     </div>
   );

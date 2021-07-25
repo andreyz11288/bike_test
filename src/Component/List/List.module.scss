@@ -10,6 +10,7 @@
 }
 
 .item_list {
+  position: relative;
   display: flex;
   max-width: 618px;
   margin: 12px 9px 0 12px;
@@ -30,6 +31,11 @@
     color: #000000;
   }
 }
+// .item_list:active {
+//   background-color: #ffffff;
+//   transition: background-color 0s;
+// }
+
 .div_price_list {
   display: block;
   margin-left: auto;
@@ -85,4 +91,12 @@
 }
 .arrow {
   height: 5px;
+}
+.clickDescr {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.form_select {
+  z-index: 20;
 }
