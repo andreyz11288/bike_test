@@ -11,7 +11,7 @@ export default function Statistic() {
   const [stateBooked, setBooked] = useState(null);
 
   useEffect(() => {
-    if (state.length & (state.length > 0)) {
+    if (state.length > 0) {
       const available = state.map(e => e.status === 'available');
       const ava = available.reduce((total, amount) => total + amount);
       ava === true ? setAvailable(1) : setAvailable(ava);
@@ -34,9 +34,7 @@ export default function Statistic() {
   return (
     <div>
       <p className={s.statistic_text}>STATISTICS</p>
-      <p>
-        Total Bikes: <span>{state.length && state.length}</span>
-      </p>
+      <p>Total Bikes: {state.length && <span>{state.length}</span>}</p>
       <p>
         Available Bikes: <span>{stateAvailable}</span>
       </p>
