@@ -1,0 +1,26 @@
+.statistic_text {
+  padding: 10px 0 5px 0;
+  font-family: Saira;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 28px;
+  color: #000000;
+  & ~ p {
+    margin-bottom: 5px;
+    font-family: Saira;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 22px;
+    color: #000000;
+  }
+  & ~ p span {
+    font-family: Saira;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 22px;
+    color: #000000;
+  }
+}

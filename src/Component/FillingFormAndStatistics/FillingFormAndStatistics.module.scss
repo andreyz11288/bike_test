@@ -39,68 +39,68 @@
   width: 482px;
   padding-left: 16px;
 }
-.filling .button_save,
-.filling .button_clear {
-  margin-left: 0;
-  width: 236px;
-  background-color: #696969;
-  border-radius: 5px;
-  cursor: pointer;
+// .filling .button_save,
+// .filling .button_clear {
+//   margin-left: 0;
+//   width: 236px;
+//   background-color: #696969;
+//   border-radius: 5px;
+//   cursor: pointer;
 
-  font-family: Saira;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 14px;
-  line-height: 22px;
-  align-items: center;
-  text-align: center;
+//   font-family: Saira;
+//   font-style: normal;
+//   font-weight: normal;
+//   font-size: 14px;
+//   line-height: 22px;
+//   align-items: center;
+//   text-align: center;
 
-  color: #ffffff;
-}
+//   color: #ffffff;
+// }
 
-.filling .button_clear {
-  margin-left: 11px;
-}
-.container_text {
-  border: 1px solid #696969;
-  border-radius: 10px;
-  min-height: 100px;
-  background-color: #e8e8e8;
-  & p {
-    font-family: Saira;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 14px;
-    line-height: 22px;
-    text-indent: 20px;
-  }
-  & p::first-letter {
-    text-transform: uppercase;
-  }
-}
-.statistic_text {
-  padding: 10px 0 5px 0;
-  font-family: Saira;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 18px;
-  line-height: 28px;
-  color: #000000;
-  & ~ p {
-    margin-bottom: 5px;
-    font-family: Saira;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 14px;
-    line-height: 22px;
-    color: #000000;
-  }
-  & ~ p span {
-    font-family: Saira;
-    font-style: normal;
-    font-weight: 700;
-    font-size: 14px;
-    line-height: 22px;
-    color: #000000;
-  }
-}
+// .filling .button_clear {
+//   margin-left: 11px;
+// }
+// .container_text {
+//   border: 1px solid #696969;
+//   border-radius: 10px;
+//   min-height: 100px;
+//   background-color: #e8e8e8;
+//   & p {
+//     font-family: Saira;
+//     font-style: normal;
+//     font-weight: normal;
+//     font-size: 14px;
+//     line-height: 22px;
+//     text-indent: 20px;
+//   }
+//   & p::first-letter {
+//     text-transform: uppercase;
+//   }
+// }
+// .statistic_text {
+//   padding: 10px 0 5px 0;
+//   font-family: Saira;
+//   font-style: normal;
+//   font-weight: bold;
+//   font-size: 18px;
+//   line-height: 28px;
+//   color: #000000;
+//   & ~ p {
+//     margin-bottom: 5px;
+//     font-family: Saira;
+//     font-style: normal;
+//     font-weight: normal;
+//     font-size: 14px;
+//     line-height: 22px;
+//     color: #000000;
+//   }
+//   & ~ p span {
+//     font-family: Saira;
+//     font-style: normal;
+//     font-weight: 700;
+//     font-size: 14px;
+//     line-height: 22px;
+//     color: #000000;
+//   }
+// }

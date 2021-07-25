@@ -14,8 +14,11 @@ export default function List() {
   }, [dispatch]);
 
   const clickDelete = e => {
-    console.log('14');
     dispatch(deleteData(e, state));
+    const finsDescr = document.getElementById('form_description');
+    if (finsDescr.className.includes(`${e}`)) {
+      finsDescr.classList.remove(`vision`);
+    }
   };
 
   const statusForm = eve => {
@@ -42,12 +45,15 @@ export default function List() {
     }
     if (!finsDescr.className.includes(`${id}`)) {
       finsDescr.className = `form_description`;
+
       finsDescr.classList.add(`${id}`);
       finsDescr.classList.add(`vision`);
 
       for (let index = 0; index < allLiColor.length; index++) {
         allLiColor[index].classList.remove('color');
+        allLiColor[index].classList.remove(`${id}`);
       }
+
       liColor.classList.add(`${id}`);
       liColor.classList.add(`color`);
     }
@@ -56,12 +62,7 @@ export default function List() {
   return (
     <ul className={s.list}>
       {state.map(e => (
-        <li
-          // onClick={() => descrip(e.id)}
-          id={e.id}
-          className={s.item_list}
-          key={e.id}
-        >
+        <li id={e.id} className={s.item_list} key={e.id}>
           <div className={e.status}>
             <div className={s.rigth_list}>
               <span>

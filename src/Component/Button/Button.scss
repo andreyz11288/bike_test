@@ -1,0 +1,22 @@
+.button_save,
+.button_clear {
+  margin-left: 0 !important;
+  width: 236px;
+  background-color: #696969;
+  border-radius: 5px;
+  cursor: pointer;
+
+  font-family: Saira;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 22px;
+  align-items: center;
+  text-align: center;
+
+  color: #ffffff;
+}
+
+.button_clear {
+  margin-left: 11px !important;
+}
