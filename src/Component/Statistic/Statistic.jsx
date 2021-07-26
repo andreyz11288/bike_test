@@ -10,30 +10,30 @@ export default function Statistic() {
   const [stateBooked, setBooked] = useState(null);
 
 
-  // useEffect(() => {
-  //   if (state & state.length > 0) {
-  //     const available = state.map(e => e.status === 'available');
-  //     const ava = available.reduce((total, amount) => total + amount);
-  //     ava === true ? setAvailable(1) : setAvailable(ava);
-  //     !ava && setAvailable(0);
-  //     const booked = state.map(e => e.status === 'busy');
-  //     const bookedBikes = booked.reduce((total, amount) => total + amount);
-  //     bookedBikes === true ? setBooked(1) : setBooked(bookedBikes);
-  //     !bookedBikes && setBooked(0);
-  //     const average = state.map(e => {
-  //       const price = Number(e.price);
-  //       return price;
-  //     });
-  //     const ave =
-  //       average.reduce((total, amount) => total + amount) / state.length;
-  //     setAve(Math.round(ave * 100.0) / 100.0);
-  //   }
-  // }, [state]);
+  useEffect(() => {
+    if (state & state.length > 0) {
+      const available = state.map(e => e.status === 'available');
+      const ava = available.reduce((total, amount) => total + amount);
+      ava === true ? setAvailable(1) : setAvailable(ava);
+      !ava && setAvailable(0);
+      const booked = state.map(e => e.status === 'busy');
+      const bookedBikes = booked.reduce((total, amount) => total + amount);
+      bookedBikes === true ? setBooked(1) : setBooked(bookedBikes);
+      !bookedBikes && setBooked(0);
+      const average = state.map(e => {
+        const price = Number(e.price);
+        return price;
+      });
+      const ave =
+        average.reduce((total, amount) => total + amount) / state.length;
+      setAve(Math.round(ave * 100.0) / 100.0);
+    }
+  }, [state]);
 
   console.log(state);
   return (
     <div>
-      <p className={s.statistic_text}>STATISTICS</p>
+      {/* <p className={s.statistic_text}>STATISTICS</p>
       <p>Total Bikes: {state ? <span>{state.length}</span> : <span>0</span>}</p>
       <p>
         Available Bikes: {state & state.length > 0 ? <span>{stateAvailable}</span> : <span>0</span>}
@@ -43,7 +43,7 @@ export default function Statistic() {
       </p>
       <p>
         Average bike cost: {state & state.length > 0  ? <span>{stateAve}</span>: <span>0</span>} UAH/hr.
-      </p>
+      </p> */}
     </div>
   );
 }
