@@ -34,16 +34,16 @@ export default function Statistic() {
   return (
     <div>
       <p className={s.statistic_text}>STATISTICS</p>
-      {/* <p>Total Bikes: {state ? <span>{state.length}</span> : <span>0</span>}</p>
+      <p>Total Bikes:</p>
       <p>
-        Available Bikes: {state & state.length > 0 ? <span>{stateAvailable}</span> : <span>0</span>}
+        Available Bikes: 
       </p>
       <p>
-        Booked Bikes: {state & state.length > 0 ? <span>{stateBooked}</span>: <span>0</span> }
+        Booked Bikes: 
       </p>
       <p>
-        Average bike cost: {state & state.length > 0  ? <span>{stateAve}</span>: <span>0</span>} UAH/hr.
-      </p> */}
+        Average bike cost:  UAH/hr.
+      </p>
     </div>
   );
 }
