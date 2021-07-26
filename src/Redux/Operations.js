@@ -30,6 +30,7 @@ const getData = () => async dispatch => {
   dispatch(getStart());
   try {
     const response = await localforage.getItem('data');
+    console.log(response);
     dispatch(getSuccess(response));
   } catch (error) {
     dispatch(getError(error.message));

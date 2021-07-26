@@ -11,7 +11,7 @@ export default function List() {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getData('data'));
-  }, [dispatch]);
+  }, []);
 
   const clickDelete = e => {
     dispatch(deleteData(e, state));
