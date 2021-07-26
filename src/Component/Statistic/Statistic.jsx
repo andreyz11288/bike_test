@@ -30,11 +30,11 @@ export default function Statistic() {
     }
   }, [state]);
 
-  console.log(state);
+  // console.log(state);
   return (
     <div>
-      {/* <p className={s.statistic_text}>STATISTICS</p>
-      <p>Total Bikes: {state ? <span>{state.length}</span> : <span>0</span>}</p>
+      <p className={s.statistic_text}>STATISTICS</p>
+      {/* <p>Total Bikes: {state ? <span>{state.length}</span> : <span>0</span>}</p>
       <p>
         Available Bikes: {state & state.length > 0 ? <span>{stateAvailable}</span> : <span>0</span>}
       </p>
