@@ -66,8 +66,9 @@ function FillingFormAndStatistics() {
   };
 
   const saveData = e => {
-    dispatch(addData([dataForm, ...state]));
-    e.preventDefault();
+      e.preventDefault();
+!state && dispatch(addData([dataForm]));
+    state && dispatch(addData([dataForm, ...state]));
     setAdd();
   };
 
