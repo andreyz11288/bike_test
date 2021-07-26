@@ -11,7 +11,7 @@ export default function Statistic() {
 
 
   useEffect(() => {
-    if (state.length > 0) {
+    if (state & state.length > 0) {
       const available = state.map(e => e.status === 'available');
       const ava = available.reduce((total, amount) => total + amount);
       ava === true ? setAvailable(1) : setAvailable(ava);
@@ -36,13 +36,13 @@ export default function Statistic() {
       <p className={s.statistic_text}>STATISTICS</p>
       <p>Total Bikes: {state ? <span>{state.length}</span> : <span>0</span>}</p>
       <p>
-        Available Bikes: {state.length > 0 ? <span>{stateAvailable}</span> : <span>0</span>}
+        Available Bikes: {state & state.length > 0 ? <span>{stateAvailable}</span> : <span>0</span>}
       </p>
       <p>
-        Booked Bikes: {state.length > 0 ? <span>{stateBooked}</span>: <span>0</span> }
+        Booked Bikes: {state & state.length > 0 ? <span>{stateBooked}</span>: <span>0</span> }
       </p>
       <p>
-        Average bike cost: {state.length > 0  ? <span>{stateAve}</span>: <span>0</span>} UAH/hr.
+        Average bike cost: {state & state.length > 0  ? <span>{stateAve}</span>: <span>0</span>} UAH/hr.
       </p>
     </div>
   );
