@@ -78,7 +78,7 @@ function FillingFormAndStatistics() {
   };
 
   return (
-    <div className={s.form_section}>
+    <section className={s.form_section}>
       <form className={s.filling} onSubmit={e => saveData(e)}>
         <Input
           value={stateName}
@@ -144,7 +144,7 @@ function FillingFormAndStatistics() {
       </form>
       <Statistic />
       <Descriptions />
-    </div>
+    </section>
   );
 }
 

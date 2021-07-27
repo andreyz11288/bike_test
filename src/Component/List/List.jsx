@@ -60,7 +60,8 @@ export default function List() {
   };
 
   return (
-    <ul className={s.list}>
+    <section className={s.list_section}>
+      <ul className={s.list}>
       {state &&
         state.map(e => (
           <li id={e.id} className={s.item_list} key={e.id}>
@@ -107,5 +108,6 @@ export default function List() {
           </li>
         ))}
     </ul>
+    </section>
   );
 }
