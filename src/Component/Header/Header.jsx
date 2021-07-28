@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom'
-import img from '../../image/ADMIN.BIKE-BOOKING.COM.svg'
+import img from '../../image/BIKE.svg'
 import s from './Header.module.scss'
 
 export default function Header() {

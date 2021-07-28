@@ -5,8 +5,8 @@ import s from './Footer.module.scss'
 function Footer(props) {
     return (
         <footer className={s.footer_section}>
-            <img src={dev} alt=""  />
-            <img src={first} alt=""  />
+            <img src={dev} alt="dev" width='98' height='31'/>
+            <img src={first} alt="first" width='195' height='31' />
         </footer>
     );
 }
