@@ -4,7 +4,7 @@ import Main from './Component/Main/Main.js'
 import Footer from './Component/Footer/Footer'
 
 function App() {
-  return (
+    return (
     <div className={s.container}>
       <Header />
       <Main />
